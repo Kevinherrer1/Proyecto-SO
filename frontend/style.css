@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+body{
+    font-family: 'Chakra Petch', sans-serif;
+}
+header {
+    color: #FFFFFF;
+    background-color: #b0d0e68a;
+    padding: 40px 0 20px 0;
+    text-align: center;
+}
+
+.home{
+    display:flex;
+    flex-wrap:wrap ;
+    justify-content: center;
+    background-color: lightgrey;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 0 20px 0 20px;
+    max-width: 900px;
+}
+
+nav ul{
+    float: right;
+    margin-right: 20px;
+}
+
+nav ul li{
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+}
+nav ul li a{
+    color: #2d2f4b;
+    text-transform: uppercase;
+}
+
+li a.active, li a:hover{
+    background: #68686811;
+    transition: .5s;
+}
+
+/*Alinear barra de navegación a la izquierda*/
+.navbar ul li {
+	position: relative;
+	float: left;
+}
+
+/*Color al pulsar opciones de menú*/
+.navbar ul li a:hover {
+	color: #000000;
+}
+
+/*Anchor de los enlaces de navegación*/
+.menu .navbar ul li a {
+	font-size: 14px;
+	padding: 16px;
+	color: #323232;
+	display: flex;
+    margin-left: 50px;
+}
+
+/*Diseños del logo*/
+.logo {
+	font-size: 50px;
+	font-weight: 800;
+	color: #2d2f4b;
+    margin: 20px;
+    text-transform: uppercase;
+}
+
+.in-flex{
+    flex:1;
+}
+
+.in-flex div{
+    background-color: rgb(255, 255, 255) ;
+    padding: 25px;
+    margin: 20px;
+}
+
+.registro{
+    background: rgba(37, 40, 73, 0.719);
+    padding: 32px 20px;
+    text-align: center;
+}
+
+.registro h1{
+    font-size: 19px;
+}
+
+.about{
+    padding:20px;
+}
+
+img{
+    width: 40%;
+    margin-top: 20px;
+}
+
+.image{
+    text-align: center;
+
+}
+
+p, h2{
+    text-align: center;
+}
+
+.tram .serv{
+	margin-top: 5px;
+	display: flex;
+	justify-content: space-between;
+    padding: 25px;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+	flex-basis: calc(25% - 20px);
+}
+
+footer {
+    background: #353535;
+    padding: 32px 0;
+    text-align: center;
+    color: #868686;
+    font-size: 12px;
+}
+footer ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+footer li {
+    display: inline-block;
+}
+footer li a {
+    padding: 6px;
+    font-size: 14px;
+    text-decoration: none;
+    color: #c3c3c3;
+}
+footer li a:hover {
+    color: white;
+}
+
+.checkbtn{
+    font-size: 30px;
+    color: #868686;
+    float:right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display:none;
+}
+
+#check{
+    display:none;
+}
+
+@media (max-width: 866px){
+    .checkbtn{
+        display: block;
+    }
+    nav ul{
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background-color: #6d6d6d;
+        top:230px;
+        left: -100%;
+        text-align: center;
+        transition: all .5s;
+    }
+
+    nav ul li{
+        display: block;
+        margin: 50px 0;
+        line-height: 30px;
+    }
+
+.menu .navbar ul li a {
+        font-size: 100%;
+        color: #ffffff;
+    }
+    li a.hover, li a.active{
+        background: none;
+        color: #ffffff;
+    }
+    #check:checked ~ ul{
+        left:0;
+    }
+}

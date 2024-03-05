@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Login</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+
+    <section class="h-100 gradient-form" style="background-color: #e9e9e9;">
+        <div class="container py-4 h-80">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-xl-11">
+                    <div class="card rounded-3 text-black">
+                        <div class="row g-0">
+                            <div class="col-lg-6">
+                                <div class="card-body p-md-5 mx-md-4">
+
+                                    <div class="text-center">
+                                        <img src="/Imagenes/logo.png" style="width: 185px;" alt="logo">
+                                        <p><br>Iniciar Sesi&oacute;n</p>
+                                    </div>
+
+                                    <form action="{{ route('register') }}" method="POST">
+
+                                        <p>Ingrese Usuario</p>
+
+                                        <div class="form-outline mb-4">
+                                            <input type="usuario" id="name" class="form-control"
+                                                placeholder="Ej: ejemplo12" required/>
+
+                                        </div>
+
+                                        <div class="form-outline mb-4">
+
+                                            <label class="form-label" for="form2Example11">Contrase&ntilde;a</label>
+                                            <input type="password" name="password" id="form2Example22"
+                                                class="form-control" placeholder="Ej: Ej1234"requuired />
+                                        </div>
+
+                                        <div class="text-center pt-1 mb-5 pb-1">
+                                            <button class="btn btn-primary btn-block fa-lg gradient-custom-1 mb-3"
+                                                style="color: #FAFAFA;" type="button">Log
+                                                in</button>
+                                        </div>
+
+                                        <div class="d-flex align-items-center justify-content-center pb-4">
+                                            <p class="mb-0 me-2">¿No tienes una cuenta?</p>
+                                            <a href="registrarse.html" class="btn btn-outline-danger">Crear
+                                                cuenta</a>
+                                        </div>
+                                        <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+                                    </form>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- place footer here -->
+    </footer>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
