@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Registro</title>
+</head>
+<body>
+    <h1>Formulario de Registro</h1>
+    <input type="file" accept="image/*" capture="environment" id="inputFoto">
+    <button id="btnTomarFoto">Tomar Foto</button>
+    <canvas id="canvasFoto" style="display: none;"></canvas>
+    <button id="btnEnviar">Enviar</button>
+    <script>
+        const inputFoto = document.getElementById('inputFoto');
+        const canvasFoto = document.getElementById('canvasFoto');
+        const btnTomarFoto = document.getElementById('btnTomarFoto');
+        const btnEnviar = document.getElementById('btnEnviar');
+
+        let fotoTomada = null;
+
+        btnTomarFoto.addEventListener('click', () => {
+            const context = canvasFoto.getContext('2d');
+            const video = document.createElement('video');
+            const constraints = {
+                video: { facingMode: 'environment' }
+            };
+
+            navigator.mediaDevices.getUserMedia(constraints)
+                .then(stream => {
+                    video.srcObject = stream;
+                    video.play();
+                    setTimeout(() => {
+                        canvasFoto.width = video.videoWidth;
+                        canvasFoto.height = video.videoHeight;
+                        context.drawImage(video, 0, 0, canvasFoto.width, canvasFoto.height);
+                        fotoTomada = canvasFoto.toDataURL('image/jpeg');
+                        video.pause();
+                        stream.getTracks().forEach(track => track.stop());
+                    }, 500); // Esperar 0.5 segundos antes de tomar la foto
+                })
+                .catch(error => console.error('Error al acceder a la cámara:', error));
+        });
+
+        btnEnviar.addEventListener('click', () => {
+            if (fotoTomada) {
+                const formData = new FormData();
+                formData.append('nombre', 'Nombre de ejemplo');
+                formData.append('apellido', 'Apellido de ejemplo');
+                formData.append('imagen_acta', fotoTomada);
+                fetch('/registro', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                    throw new Error('Error en la solicitud');
+                })
+                .then(data => {
+                    alert(data.mensaje);
+                    console.log('Ruta del código QR:', data.qr_code_path);
+                })
+                .catch(error => console.error('Error al enviar la foto:', error));
+            } else {
+                alert('Debes tomar una foto primero');
+            }
+        });
+    </script>
+</body>
+</html>
