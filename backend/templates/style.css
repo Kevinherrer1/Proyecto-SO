@@ -124,7 +124,9 @@ p, h2{
     padding: 25px;
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 	flex-basis: calc(25% - 20px);
+    font-weight: bold;
 }
+
 
 footer {
     background: #353535;
@@ -197,4 +199,57 @@ footer li a:hover {
     #check:checked ~ ul{
         left:0;
     }
+}
+
+#btnTomarFoto{
+    background: #0b7dda; 
+    color: rgb(255, 255, 255);
+    padding: 10px;
+    border-radius: 7px;
+}
+
+#btnEnviar{
+    background-color: #46a049; 
+    color: rgb(255, 255, 255);
+    padding: 10px;
+    margin-top:15px;
+    border-radius: 7px;
+    margin: 30px 0;
+    display: block;
+}
+
+#inputFoto{
+    background-color: #0b7dda; 
+    color: rgb(255, 255, 255);
+    padding: 10px;
+    border-radius: 7px;
+}
+
+.file-select{
+    margin: 10px 0;
+}
+
+.box{
+    padding: 75px;
+}
+
+.registrar{
+    margin: 30px;
+    font-size:20px;
+}
+
+#regis{
+    padding:20px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Estilos adicionales */
+.cuadrado {
+    width: 200px;
+    height: 200px;
+    background-color: #000000;
+    margin: 0 auto;
 }

@@ -12,7 +12,9 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://usuario:contraseña@localhost/nombre_base_de_datos'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = 'tu_clave_secreta'
+#Almacenan las Imagenes que tomen los usuarios de las partidas
 app.config['UPLOAD_FOLDER'] = 'uploads'
+#Almacenana las Imagenes de los QR
 app.config['QR_CODES_FOLDER'] = 'qr_codes'
 
 db = SQLAlchemy(app)

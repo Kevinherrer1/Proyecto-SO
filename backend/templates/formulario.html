@@ -3,14 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario de Registro</title>
+    <title>Registrarse en el Registro Publico</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Formulario de Registro</h1>
-    <input type="file" accept="image/*" capture="environment" id="inputFoto">
-    <button id="btnTomarFoto">Tomar Foto</button>
-    <canvas id="canvasFoto" style="display: none;"></canvas>
-    <button id="btnEnviar">Enviar</button>
+    <section class="h-100 gradient-form" style="background-color: #e9e9e9;">
+        <h1 class="home" id="regis" style="text-align: center; font-size: 40px;">Registro de Usuario</h1>
+        <div class="container py-4 h-80">
+            <div class="row d-flex justify-content-center align-items-center h-100 ">
+                <div class="col-xl-6">
+                    <div class="card rounded-3 text-black">
+                        <div class="row g-0">
+                            <div class="col-lg-10">
+                                <div class="card-body p-md-5 mx-md-4">
+                                        <p class="registrar">Para registrarse en el sistema del Registro Publico, es necesario que suba o escanee su Acta de Nacimiento</p>
+
+                                        <div class="file-select" >
+                                            <input type="file" accept="image/*" capture="environment" id="inputFoto">
+                                        </div>
+
+                                            <button id="btnTomarFoto">Tomar Foto</button>
+                                        
+                                            <canvas id="canvasFoto" style="display: none;"></canvas>
+ 
+                                            <button id="btnEnviar">Enviar</button>
+
+                                    </div>
+                                <div class="box"> </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <script>
         const inputFoto = document.getElementById('inputFoto');
         const canvasFoto = document.getElementById('canvasFoto');
@@ -37,7 +64,7 @@
                         fotoTomada = canvasFoto.toDataURL('image/jpeg');
                         video.pause();
                         stream.getTracks().forEach(track => track.stop());
-                    }, 500); // Esperar 0.5 segundos antes de tomar la foto
+                    }, 1500); // Esperar 0.5 segundos antes de tomar la foto
                 })
                 .catch(error => console.error('Error al acceder a la cámara:', error));
         });
@@ -67,6 +94,15 @@
                 alert('Debes tomar una foto primero');
             }
         });
+        
     </script>
+    <footer class="navbar-fixed-bottom">
+        <ul>
+          <li><a href="#">Inicio</a></li>
+          <li><a href="#">Nosotros</a></li>
+          <li><a href="#">Contacto</a></li>
+        </ul>
+        <p>&copy; All rights reserved.</p>
+    </footer>
 </body>
 </html>
